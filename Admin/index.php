@@ -217,10 +217,10 @@
                             <span class="nav-label">Brand</span><i class="fa fa-angle-left arrow"></i></a>
                         <ul class="nav-2-level collapse">
                             <li>
-                                <a href="colors.html">Add Brand</a>
+                                 <a href="index.php?Addbrand">Add Brand</a>
                             </li>
                             <li>
-                                <a href="typography.html">View Brand</a>
+                              <a href="index.php?Viewbrand">View Brand</a>
                             </li>
                             
                           
@@ -231,10 +231,10 @@
                             <span class="nav-label">Product</span><i class="fa fa-angle-left arrow"></i></a>
                         <ul class="nav-2-level collapse">
                             <li>
-                                <a href="colors.html">Add Product</a>
+                                <a href="index.php?AddProduct">Add Product</a>
                             </li>
                             <li>
-                                <a href="typography.html">View Product</a>
+                                <a href="index.php?ViewProduct">View Product</a>
                             </li>
                           
                         </ul>
@@ -265,6 +265,27 @@
                         {
                             include("ViewCategory.php");
                         }
+                        else if(isset($_GET["Addbrand"]))
+                        {
+                            include("Addbrand.php");
+                        }
+
+                        else if(isset($_GET["Viewbrand"]))
+                        {
+                            include("Viewbrand.php");
+                        }
+                        
+                        else if(isset($_GET["AddProduct"]))
+                        {
+                            include("AddProduct.php");
+                        }
+                        else if(isset($_GET["ViewProduct"]))
+                        {
+                            include("ViewProduct.php");
+                        }
+
+                        
+                        
                         else
                         {
                             echo '

@@ -11,7 +11,7 @@
         <div class="ibox">
         <div class="ibox-head">
 
-                                <div class="ibox-title">View Category</div>
+                                <div class="ibox-title">View Brand</div>
                             </div>
                             <div class="ibox-body">
                                 <table class="table">
@@ -25,7 +25,7 @@
                                     <tbody>
                                         <tr>
                                             <td>1</td>
-                                            <td>Mobile</td>
+                                            <td>Nokia</td>
                                             <td>
                                                 <a href="" class="btn btn-success">Edit</a>
                                                 <a href="" class="btn btn-danger">Delete</a>
