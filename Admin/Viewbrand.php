@@ -1,3 +1,7 @@
+<?php 
+include("connection.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,14 +27,21 @@
                                         </tr>
                                      </thead>
                                     <tbody>
+                                    <?php 
+                                            $fetchcat = mysqli_query($con,"select * from brand");
+                                            while($row = mysqli_fetch_array($fetchcat))
+                                            {
+                                        ?>
                                         <tr>
-                                            <td>1</td>
-                                            <td>Nokia</td>
+                                            <td><?php echo $row[0] ?></td>
+                                            <td><?php echo $row[1] ?></td>
                                             <td>
                                                 <a href="" class="btn btn-success">Edit</a>
                                                 <a href="" class="btn btn-danger">Delete</a>
                                             </td>
                                         </tr>
+
+                                        <?php } ?>
                                     </tbody>
                                 </table>
                             </div>    

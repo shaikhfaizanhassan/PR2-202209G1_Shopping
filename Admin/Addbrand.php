@@ -1,3 +1,8 @@
+<?php 
+include("connection.php");
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,20 +19,30 @@
                               
                             </div>
                             <div class="ibox-body">
-                                <form>
+                                <form action="" method="post">
                                     <div class="row">
                                         <div class="col-sm-6 form-group">
                                             <label>Name</label>
-                                            <input class="form-control" type="text" placeholder="Enter Category">
+                                            <input class="form-control" required name="bname" type="text" placeholder="Enter Brand">
                                         </div>
                                         
                                     </div>
-                                   
-                                  
                                     <div class="form-group">
-                                        <button class="btn btn-primary" type="submit">Submit</button>
-                                    </div>
+                                    <input type="submit" name="btn" value="Save" class="btn btn-success" id="">    
+                                </div>
                                 </form>
+                                <?php 
+                                    if(isset($_POST["btn"]))
+                                    {
+                                        $bname = $_POST["bname"];
+                                        $query = mysqli_query($con,"INSERT INTO `brand`(`brandname`) VALUES ('$bname')");
+                                        if($query>0)
+                                        {
+                                            echo "$bname Data Save ";
+                                        }
+                                    }
+                                
+                                ?>
                             </div>    
     </div>    
     </div>
