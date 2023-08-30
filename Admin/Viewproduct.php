@@ -60,7 +60,7 @@
                                     <img src="proimage/<?php echo $row[6] ?>" width="80" alt="">
                                 </td>
                                 <td>
-                                    <a href="" class="btn btn-success">Edit</a>
+                                    <a href="edit.php?editid=<?php echo $row[0] ?>" class="btn btn-success">Edit</a>
                                     <a href="" class="btn btn-danger">Delete</a>
                                     
                                 </td>

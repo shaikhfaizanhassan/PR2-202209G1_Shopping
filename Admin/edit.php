@@ -1,5 +1,11 @@
 <?php
 include("connection.php");
+if(isset($_GET["editid"]))
+{
+    $eid = $_GET["editid"];
+    $fetchall = mysqli_query($con,"select * from product where pid='$eid'");
+    $row1 = mysqli_fetch_array($fetchall);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,16 +29,16 @@ include("connection.php");
                         <div class="row">
                             <div class="col-sm-6 form-group">
                                 <label> Name</label>
-                                <input class="form-control" name="pname" type="text" placeholder="Enter NAme">
+                                <input class="form-control" value="<?php echo $row1[1] ?>" name="pname" type="text" placeholder="Enter NAme">
                             </div>
                             <div class="col-sm-6 form-group">
                                 <label> Price</label>
-                                <input class="form-control" name="pprice" type="text" placeholder="Enter Price">
+                                <input class="form-control" value="<?php echo $row1[2] ?>"  name="pprice" type="text" placeholder="Enter Price">
                             </div>
                             
                             <div class="col-sm-6 form-group">
                                 <label> Select Category</label>
-                                <select name="selectCategory" id="" class="form-control">
+                                <select name="selectCategory"  id="" class="form-control">
                                     <?php
                                     $fetchcat = mysqli_query($con, "select * from category");
                                     while ($row = mysqli_fetch_array($fetchcat)) {
@@ -63,16 +69,13 @@ include("connection.php");
                             </div>
                             <div class="col-sm-12 form-group">
                                 <label> Description</label>
-                                <textarea name="pdesc" class="form-control" id="" cols="30" rows="10"></textarea>
+                    <input type="text" name="pdesc" value="<?php echo $row1[3] ?>">
                             </div>
                             <div class="col-sm-6 form-group">
                                 <label> Image</label>
                                 <input class="form-control" name="filename" type="file" placeholder="Enter Category">
                             </div>
-
                         </div>
-
-
                         <div class="form-group">
                             <input type="submit" name="btn" value="Save" class="btn btn-success" id="">
 
@@ -82,6 +85,7 @@ include("connection.php");
 
                     <?php
                     if (isset($_POST["btn"])) {
+                        $eid = $_GET["editid"];
                         $proname = $_POST["pname"];
                         $proprice = $_POST["pprice"];
                         $prodesc = $_POST["pdesc"];
@@ -92,10 +96,10 @@ include("connection.php");
                     
                         move_uploaded_file($imagelocation, "proimage/" . $imagename);
 
-                        $query = mysqli_query($con, "INSERT INTO `product`(`pname`, `pprice`, `pdesc`, `Category_ID`, `brand_id`, `image`) VALUES ('$proname','$proprice','$prodesc','$procat','$probrand','$imagename')");
+                        $query = mysqli_query($con, "UPDATE `product` SET `pname`='$proname',`pprice`='$proprice',`pdesc`='$prodesc',`Category_ID`='$procat',`brand_id`='$probrand',`image`='$imagename' WHERE pid='$eid'");
 
                         if ($query > 0) {
-                            echo "$proname Product Save";
+                            echo "$proname Product Update";
                         } else {
                             echo "NoT Save";
                         }
