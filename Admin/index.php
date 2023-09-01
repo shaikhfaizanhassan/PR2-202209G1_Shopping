@@ -283,6 +283,10 @@
                         {
                             include("ViewProduct.php");
                         }
+                        else if(isset($_GET["editid"]))
+                        {
+                            include("edit.php");
+                        }
 
                         
                         

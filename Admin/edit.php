@@ -3,7 +3,15 @@ include("connection.php");
 if(isset($_GET["editid"]))
 {
     $eid = $_GET["editid"];
-    $fetchall = mysqli_query($con,"select * from product where pid='$eid'");
+    $fetchall = mysqli_query($con,"SELECT pid,pname,pprice,pdesc,catname,brandname FROM product
+    INNER JOIN
+    category
+    ON
+    product.Category_ID = category.cid
+    INNER JOIN
+    brand
+    on 
+    product.brand_id = brand.bid WHERE pid = '$eid'");
     $row1 = mysqli_fetch_array($fetchall);
 }
 ?>
@@ -60,7 +68,7 @@ if(isset($_GET["editid"]))
 
 
                                         ?>
-                                        <option value="" hidden="teue">Select Brand</option>
+                                        <option value="" hidden="teue"><?php echo $row1[4] ?></option>
                                         <option value="<?php echo $row[0] ?>"><?php echo $row[1] ?></option>
 
                                     <?php } ?>
@@ -69,12 +77,14 @@ if(isset($_GET["editid"]))
                             </div>
                             <div class="col-sm-12 form-group">
                                 <label> Description</label>
-                    <input type="text" name="pdesc" value="<?php echo $row1[3] ?>">
+                    <input type="text" class="form-control" name="pdesc" value="<?php echo $row1[3] ?>">
                             </div>
                             <div class="col-sm-6 form-group">
                                 <label> Image</label>
                                 <input class="form-control" name="filename" type="file" placeholder="Enter Category">
                             </div>
+                        <img src="proimage/<?php echo $row1[6] ?>" width="200" alt="">
+
                         </div>
                         <div class="form-group">
                             <input type="submit" name="btn" value="Save" class="btn btn-success" id="">
