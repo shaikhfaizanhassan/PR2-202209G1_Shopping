@@ -100,7 +100,7 @@ include("connection.php");
                         ?>
 
                         <li class="nav-item">
-                          <a class="nav-link" href="showcategory.php">
+                          <a class="nav-link" href="showcategory.php?categoryID=<?php echo $r1[0] ?>">
                             <?php echo $r1[1] ?>
                           </a>
                         </li>
