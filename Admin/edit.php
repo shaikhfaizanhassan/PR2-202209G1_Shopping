@@ -3,7 +3,7 @@ include("connection.php");
 if(isset($_GET["editid"]))
 {
     $eid = $_GET["editid"];
-    $fetchall = mysqli_query($con,"SELECT pid,pname,pprice,pdesc,catname,brandname FROM product
+    $fetchall = mysqli_query($con,"SELECT pid,pname,pprice,pdesc,catname,brandname,image FROM product
     INNER JOIN
     category
     ON

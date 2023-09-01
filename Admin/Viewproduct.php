@@ -9,6 +9,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+ 
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css" />
+  
+ 
+  <script>
+      $(document).ready( function () {
+      $('#myTable').DataTable();
+  } );
+  </script>
 </head>
 
 <body>
@@ -20,7 +31,7 @@
                     <div class="ibox-title">View Product</div>
                 </div>
                 <div class="ibox-body">
-                    <table class="table">
+                    <table class="table" id="myTable">
                         <thead>
                             <tr>
                                 <th>ID</th>
@@ -74,6 +85,9 @@
             </div>
         </div>
     </div>
+   
+
+    <script src="assets/jquerydata.js" type="text/javascript"></script>
 </body>
 
 </html>
