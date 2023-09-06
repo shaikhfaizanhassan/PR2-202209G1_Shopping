@@ -102,7 +102,7 @@ include("connection.php");
                         <li class="nav-item">
                           <a class="nav-link" href="showcategory.php?categoryID=<?php echo $r1[0] ?>">
                             <?php echo $r1[1] ?>
-                          </a>
+                          </a> 
                         </li>
                       <?php } ?>
                     </ul>
@@ -120,7 +120,7 @@ include("connection.php");
                         ?>
 
                         <li class="nav-item">
-                          <a class="nav-link" href="category.html">
+                        <a class="nav-link" href="showbrand.php?BrandDetail=<?php echo $r1[0] ?>">
                             <?php echo $r1[1] ?>
                           </a>
                         </li>
