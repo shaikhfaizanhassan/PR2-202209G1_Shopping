@@ -1,5 +1,6 @@
 <?php 
   include("connection.php");
+  session_start();
 ?>
 
 <!DOCTYPE html>
@@ -203,7 +204,8 @@
 
 
 
-    <div class="product_image_area">
+      <form action="cart.php?action=add&id=<?php echo $c[0] ?>" method="post">
+      <div class="product_image_area">
       <div class="container">
         <div class="row s_product_inner">
           <div class="col-lg-6">
@@ -257,44 +259,26 @@
               </p>
               <div class="product_count">
                 <label for="qty">Quantity:</label>
-                <input
-                  type="text"
-                  name="qty"
-                  id="sst"
-                  maxlength="12"
-                  value="1"
-                  title="Quantity:"
-                  class="input-text qty"
-                />
-                <button
-                  onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;"
-                  class="increase items-count"
-                  type="button"
-                >
+                <input type="number" value="1" name="qty" class="form-control" placeholder="QTY">
+              
+                <input type="hidden" name="hiddenname" value="<?php echo $c[1] ?>">
+                    <input type="hidden" name="hiddeprice" value="<?php echo $c[2] ?>"> 
                   <i class="lnr lnr-chevron-up"></i>
-                </button>
-                <button
-                  onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;"
-                  class="reduced items-count"
-                  type="button"
-                >
-                  <i class="lnr lnr-chevron-down"></i>
-                </button>
+              
+                
               </div>
               <div class="card_area">
-                <a class="main_btn" href="#">Add to Cart</a>
-                <a class="icon_btn" href="#">
-                  <i class="lnr lnr lnr-diamond"></i>
-                </a>
-                <a class="icon_btn" href="#">
-                  <i class="lnr lnr lnr-heart"></i>
-                </a>
+              <input type="submit" value="Add to Cart" name="add_to_cart" class="btn btn-success">
+               
+               
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+      </form>
+   
     <!--================End Single Product Area =================-->
 
     <!--================Product Description Area =================-->
