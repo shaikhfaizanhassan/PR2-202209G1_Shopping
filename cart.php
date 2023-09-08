@@ -219,6 +219,9 @@ if (isset($_POST["add_to_cart"])) {
     <div class="container">
       <div class="cart_inner">
         <div class="table-responsive">
+          <center>
+            <h2>Your Shopping Cart</h2>
+          </center>
           <table class="table">
             <thead>
               <tr>
